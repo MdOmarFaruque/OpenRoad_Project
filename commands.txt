@@ -1,0 +1,14 @@
+sudo make mount
+./flow.tcl -design <design_name> -init_design_config -add_to_designs -config_file config.tcl
+./flow.tcl -interactive
+package require openlane
+prep -design inverter1 -tag run1 -overwrite
+run_synthesis
+run_floorplan
+run_placement
+run_routing
+run_magic
+
+
+#to check any variable value from interactive session
+echo ::env(SYNTH_STRTEGY)
